@@ -1129,8 +1129,8 @@ type Assert = {
 	whitespaceString: (value: unknown, message?: string) => asserts value is string;
 
 	// Numbers.
-	evenInteger: (value: number, message?: string) => asserts value is number;
-	oddInteger: (value: number, message?: string) => asserts value is number;
+	evenInteger: (value: unknown, message?: string) => asserts value is number;
+	oddInteger: (value: unknown, message?: string) => asserts value is number;
 
 	// Two arguments.
 	directInstanceOf: <T>(instance: unknown, class_: Class<T>, message?: string) => asserts instance is T;
@@ -1599,7 +1599,7 @@ export function assertError(value: unknown, message?: string): asserts value is 
 	}
 }
 
-export function assertEvenInteger(value: number, message?: string): asserts value is number {
+export function assertEvenInteger(value: unknown, message?: string): asserts value is number {
 	if (!isEvenInteger(value)) {
 		throw new TypeError(message ?? typeErrorMessage('even integer', value));
 	}
@@ -1825,7 +1825,7 @@ export function assertObservable(value: unknown, message?: string): asserts valu
 	}
 }
 
-export function assertOddInteger(value: number, message?: string): asserts value is number {
+export function assertOddInteger(value: unknown, message?: string): asserts value is number {
 	if (!isOddInteger(value)) {
 		throw new TypeError(message ?? typeErrorMessage('odd integer', value));
 	}

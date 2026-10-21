@@ -403,3 +403,13 @@ assertNotBlobDoesNotExistCheck('🦄');
 assertNotMapDoesNotExistCheck('🦄');
 assertNotSetDoesNotExistCheck('🦄');
 assertNotDateDoesNotExistCheck('🦄');
+
+const assertEvenIntegerUnknownCheck = (value: unknown) => {
+	isAssert.evenInteger(value);
+	expectTypeOf(value).toEqualTypeOf<number>();
+};
+
+const assertOddIntegerUnknownCheck = (value: unknown) => {
+	isAssert.oddInteger(value);
+	expectTypeOf(value).toEqualTypeOf<number>();
+};
